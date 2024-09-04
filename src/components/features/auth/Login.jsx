@@ -1,11 +1,6 @@
-import Navbar from "../../Navbar";
+// import Navbar from "../../Navbar";
 function Login() {
-  return (
-    <div>
-      <Navbar />
-      login
-    </div>
-  );
+  return <div>login</div>;
 }
 
 export default Login;

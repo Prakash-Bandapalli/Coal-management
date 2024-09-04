@@ -1,8 +1,7 @@
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 function About() {
   return (
     <section className="mb-8">
-      <Navbar />
       <div className="flex flex-col items-center max-w-6xl mx-auto">
         <h3 className="text-3xl font-semibold text-darkGrayishBlue md:text-4xl my-4">
           Our Mission

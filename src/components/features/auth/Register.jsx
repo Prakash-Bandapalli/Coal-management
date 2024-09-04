@@ -1,11 +1,6 @@
-import Navbar from "../../Navbar";
+// import Navbar from "../../Navbar";
 function Register() {
-  return (
-    <div>
-      <Navbar />
-      yo
-    </div>
-  );
+  return <div>yo</div>;
 }
 
 export default Register;
