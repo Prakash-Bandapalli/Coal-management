@@ -1,11 +1,11 @@
 import WelcomeNav from "../../WelcomeNav";
-function Welcome() {
+function Dashboard() {
   return (
     <div>
       <WelcomeNav />
-      logged in succesfully
+      Dashboard
     </div>
   );
 }
 
-export default Welcome;
+export default Dashboard;

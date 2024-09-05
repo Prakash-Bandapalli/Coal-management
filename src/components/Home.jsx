@@ -1,9 +1,10 @@
 import Header from "./Header";
 import Button from "./Button";
-// import Navbar from "./Navbar";
+import Navbar from "./Navbar";
 function Home() {
   return (
     <section>
+      <Navbar />
       <div className="max-w-6xl flex flex-col items-center mx-auto text-center">
         <div className="flex items-center justify-center">
           <p className="text-2xl font-semibold md:text-4xl">Welcome to</p>

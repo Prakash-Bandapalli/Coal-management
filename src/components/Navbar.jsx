@@ -38,16 +38,28 @@ function Navbar() {
               </button>
             </div>
             <ul className="flex flex-col gap-8 text-xl font-semibold items-center">
-              <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
+              <li
+                onClick={() => setToggle((prev) => !prev)}
+                className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
+              >
                 <Link to="/">Home</Link>
               </li>
-              <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
+              <li
+                onClick={() => setToggle((prev) => !prev)}
+                className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
+              >
                 <Link to="/about">About Us</Link>
               </li>
-              <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
+              <li
+                onClick={() => setToggle((prev) => !prev)}
+                className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
+              >
                 <Link to="/login">Login</Link>
               </li>
-              <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
+              <li
+                onClick={() => setToggle((prev) => !prev)}
+                className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
+              >
                 <Link to="/register">Register</Link>
               </li>
             </ul>
