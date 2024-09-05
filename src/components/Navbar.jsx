@@ -11,17 +11,20 @@ function Navbar() {
         <Header />
         <div className="ml-24">
           <ul className="hidden lg:flex gap-14 font-semibold text-xl">
-            <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-lg px-2 hover:text-darkGrayishBlue cursor-pointer">
+            <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 px-4 rounded-xl  hover:text-white hover:bg-black cursor-pointer flex items-center">
               <Link to="/">Home</Link>
             </li>
-            <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-lg px-2 hover:text-darkGrayishBlue cursor-pointer">
+            <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-xl px-2 hover:text-white hover:bg-black cursor-pointer flex items-center">
               <Link to="/about">About Us</Link>
             </li>
-            <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-lg px-2 hover:text-darkGrayishBlue cursor-pointer">
+            {/* <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-lg px-2 hover:text-darkGrayishBlue cursor-pointer">
               <Link to="/login">Login</Link>
-            </li>
-            <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-lg px-2 hover:text-darkGrayishBlue cursor-pointer">
+            </li> */}
+            {/* <li className="shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200 rounded-lg px-2 hover:text-darkGrayishBlue cursor-pointer">
               <Link to="/register">Register</Link>
+            </li> */}
+            <li className="p-4 px-8 rounded-full bg-lightBlue hover:opacity-80 md:px-20 md:text-2xl shadow-sm hover:-translate-y-0.5 hover:shadow-md duration-200">
+              <Link to="/login">Login</Link>
             </li>
           </ul>
         </div>
@@ -55,12 +58,6 @@ function Navbar() {
                 className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
               >
                 <Link to="/login">Login</Link>
-              </li>
-              <li
-                onClick={() => setToggle((prev) => !prev)}
-                className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
-              >
-                <Link to="/register">Register</Link>
               </li>
             </ul>
           </div>

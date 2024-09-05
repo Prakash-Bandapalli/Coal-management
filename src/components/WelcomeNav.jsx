@@ -55,13 +55,16 @@ function WelcomeNav() {
               </div>
               <ul className="flex flex-col gap-8 text-xl font-semibold items-center">
                 <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
-                  <Link to="/operate">Operate</Link>
+                  <Link to="/auth/operate">Operate</Link>
                 </li>
                 <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
-                  <Link to="/about">Dashboard</Link>
+                  <Link to="/auth/dashboard">Dashboard</Link>
                 </li>
-                <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
-                  <Link to="/login">Logout</Link>
+                <li
+                  onClick={handleLogout}
+                  className="text-center w-full hover:bg-grayishBlue duration-200 py-2"
+                >
+                  Logout
                 </li>
                 <li className="text-center w-full hover:bg-grayishBlue duration-200 py-2">
                   Role :

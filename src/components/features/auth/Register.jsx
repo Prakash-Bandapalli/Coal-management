@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "./register.css";
-import { handleError } from "../toast/util";
-import { handleSuccess } from "../toast/util";
+import { handleError, handleSuccess } from "../toast/util";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 
@@ -19,7 +18,7 @@ function Register() {
     e.preventDefault();
     const { name, email, password } = registerInfo;
     if (!name || !email || !password) {
-      return handleError("name, email and password are required");
+      return handleError("Name, email, and password are required");
     }
     try {
       const url = `http://localhost:3500/users/signup`;
@@ -45,7 +44,7 @@ function Register() {
       }
       console.log(result);
     } catch (err) {
-      handleError(err);
+      handleError("An error occurred while registering");
     }
   };
 
@@ -56,15 +55,14 @@ function Register() {
       [name]: value,
     }));
   }
-  console.log(registerInfo);
 
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div className="max-w-xl mx-auto bg-gradient-to-l from-slate-300 to-slate-100 border border-slate-300 p-2 rounded-md shadow-md flex justify-center text-amber-800">
         <form className="Register" onSubmit={handleSubmit}>
           <p className="title">Registration Form</p>
-          <div>
+          <div className="flex items-center">
             <label htmlFor="name">Username:</label>
             <input
               type="text"
@@ -74,7 +72,7 @@ function Register() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="flex items-center">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -84,7 +82,7 @@ function Register() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="flex items-center">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
@@ -94,7 +92,13 @@ function Register() {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">Register</button>
+
+          <button
+            type="submit"
+            className="text-black py-2 font-bold text-xl rounded-lg hover:bg-black hover:text-white duration-200"
+          >
+            Register
+          </button>
         </form>
         <ToastContainer />
       </div>

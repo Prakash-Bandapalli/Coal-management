@@ -1,9 +1,11 @@
+/* eslint-disable react/no-unescaped-entities */
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { handleError, handleSuccess } from "../toast/util";
 import Navbar from "../../Navbar";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -42,7 +44,11 @@ const Login = () => {
         localStorage.setItem("token", jwtToken);
         localStorage.setItem("loggedInUser", name);
         setTimeout(() => {
-          navigate("/auth");
+          navigate("/auth", {
+            state: {
+              name: name,
+            },
+          });
         }, 1000);
       } else if (error) {
         const details = error?.details[0]?.message;
@@ -58,10 +64,10 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div className="max-w-xl mx-auto bg-gradient-to-l from-slate-300 to-slate-100 border border-slate-300 p-2  rounded-md shadow-md flex justify-center   text-amber-800">
         <form className="Register" onSubmit={handleLogin}>
           <p className="title">Login Form</p>
-          <div>
+          <div className="flex items-center">
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -71,7 +77,7 @@ const Login = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className="flex items-center">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
@@ -81,7 +87,19 @@ const Login = () => {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">Login</button>
+          <p className="text-center my-3">
+            Haven't registered yet?
+            <span className="font-semibold text-blue-500">
+              <Link to="/register">register</Link>
+            </span>
+          </p>
+
+          <button
+            type="submit"
+            className="text-black py-2 font-bold text-xl rounded-lg hover:bg-black hover:text-white duration-200"
+          >
+            Login
+          </button>
         </form>
         <ToastContainer />
       </div>

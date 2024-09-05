@@ -1,17 +1,41 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import WelcomeNav from "../../WelcomeNav";
+import { useLocalStorageState } from "../useLocalStorageState";
 const MineDetails = () => {
-  const [zoneName, setZoneName] = useState("");
+  const [zoneName, setZoneName] = useState("Zone A");
   const [shift, setShift] = useState("morningshift");
   const [zone, setZone] = useState("ZoneA");
-  const [area, setArea] = useState("");
-  const [manpower, setManpower] = useState("");
+  const [area, setArea] = useState("100");
+  const [manpower, setManpower] = useState("50");
+  const [progress, setProgress] = useState("");
+  const [store, setStore] = useLocalStorageState([], "mines");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can process form data here or send it to a server
-    console.log({ zoneName, shift, zone, area, manpower });
+
+    // Create a new mine object
+    const newMine = {
+      zoneName,
+      shift,
+      zone,
+      area,
+      manpower,
+      progress,
+      id: Date.now(),
+    };
+
+    // Update the store state
+    setStore([...store, newMine]);
+
+    // Optionally clear the form fields after submission
+    setZoneName("");
+    setShift("morningshift");
+    setZone("ZoneA");
+    setArea("");
+    setManpower("");
+    setProgress("");
   };
 
   return (
@@ -98,6 +122,23 @@ const MineDetails = () => {
                 required
               />
             </div>
+
+            {/* Commented out progress field since it's not used in this context */}
+            {/* {role !== "supervisor" && (
+              <div className="mb-4">
+                <label className="block mb-1 text-white" htmlFor="progress">
+                  Progress Update for {zoneName}
+                </label>
+                <textarea
+                  className="w-full p-2 rounded"
+                  id="progress"
+                  placeholder="Enter progress details"
+                  value={progress}
+                  onChange={(e) => setProgress(e.target.value)}
+                  required
+                ></textarea>
+              </div>
+            )} */}
 
             <button
               type="submit"
